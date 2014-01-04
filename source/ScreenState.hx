@@ -7,6 +7,7 @@ import flixel.FlxState;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup;
+import flixel.system.debug.FlxDebugger;
 import flixel.util.FlxColor;
 import flixel.util.FlxColorUtil;
 import flixel.util.FlxPoint;
@@ -58,8 +59,7 @@ class ScreenState extends FlxState
 		//FlxG.mouse.show();
 		//#end
 
-		//HaxeFlixel equivalent ?
-//		FlxG.setDebuggerLayout(FlxG.DEBUGGER_MICRO);
+		FlxG.debugger.setLayout(MICRO);
 		super.create();
 		GameInput.create();
 		GameSound.create();
