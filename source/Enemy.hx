@@ -161,7 +161,6 @@ class Enemy extends Entity
 		// Change the pixel BitmapData if the type changed
 		if (_previousType != type)
 		{
-			trace("switch");
 			//cachedGraphics.bitmap = enemyPixels[type];
 			//pixels = enemyPixels[type];
 			//region.tileWidth = cast width = frameWidth = _saveWidth;
