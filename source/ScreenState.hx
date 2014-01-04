@@ -59,6 +59,7 @@ class ScreenState extends FlxState
 		//FlxG.mouse.show();
 		//#end
 
+		FlxG.fixedTimestep = false;
 		FlxG.debugger.setLayout(MICRO);
 		super.create();
 		GameInput.create();
@@ -113,10 +114,10 @@ class ScreenState extends FlxState
 		cursor.x = FlxG.mouse.x;
 		cursor.y = FlxG.mouse.y;
 		
-		//if (FlxRandom.float() < 1 / inverseSpawnChance) makeEnemy(Enemy.SEEKER);
-		//if (FlxRandom.float() < 1 / inverseSpawnChance) makeEnemy(Enemy.WANDERER);
-		//if (blackholes.countLiving() < 2) if (FlxRandom.float() < 1 / (inverseSpawnChance * 10)) makeBlackhole();
-		//if (inverseSpawnChance > 20) inverseSpawnChance -= 0.005;
+		if (FlxRandom.float() < 1 / inverseSpawnChance) makeEnemy(Enemy.SEEKER);
+		if (FlxRandom.float() < 1 / inverseSpawnChance) makeEnemy(Enemy.WANDERER);
+		if (blackholes.countLiving() < 2) if (FlxRandom.float() < 1 / (inverseSpawnChance * 10)) makeBlackhole();
+		if (inverseSpawnChance > 20) inverseSpawnChance -= 0.005;
 		
 		FlxG.overlap(entities, entities, handleCollision);
 		FlxG.overlap(blackholes, entities, handleCollision);
@@ -155,9 +156,9 @@ class ScreenState extends FlxState
 		super.draw();
 
 		//Apply glow effect, may cause significant framerate decrease
-		//_fx.stamp(FlxG.camera.screen);
-		//FlxG.camera.screen.pixels.applyFilter(FlxG.camera.screen.pixels, _rect, _point, blur);
-		//_fx.draw();
+		_fx.stamp(FlxG.camera.screen);
+		FlxG.camera.screen.pixels.applyFilter(FlxG.camera.screen.pixels, _rect, _point, blur);
+		_fx.draw();
 	}
 	
 	public function handleCollision(Object1:FlxObject, Object2:FlxObject):Void
