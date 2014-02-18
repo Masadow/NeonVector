@@ -36,7 +36,7 @@ class Entity extends FlxSprite
 		super(X, Y);
 		_position = new FlxPoint();
 		
-		_blend = SCREEN;
+		blend = SCREEN;
 		cooldownTimer = FlxTimer.recycle();
 		cooldownTimer.finished = true;
 	}

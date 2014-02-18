@@ -26,7 +26,7 @@ class Bullet extends Entity
 		super.update();
 		
 		angle = Entity.angleInDegrees(velocity);
-		if (!onScreen()) 
+		if (!isOnScreen())
 		{
 			ScreenState.makeExplosion(Particle.BULLET, position.x, position.y, 20, Particle.LOW_SPEED, 0x33ccff, 0x22bbdd);
 			kill();

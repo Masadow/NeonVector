@@ -2,6 +2,7 @@ package ;
 import flixel.util.FlxMath;
 import flixel.FlxG;
 import flixel.util.FlxPoint;
+import flixel.util.FlxVelocity;
 
 /**
  * ...
@@ -63,13 +64,13 @@ class PointMass
 		var delta:Float;
 		var velocityDelta:Float;
 		
-		velocityDelta = (FlxMath.computeVelocity(velocity.x, acceleration.x, Math.abs(damping * velocity.x), 0) - velocity.x)/2;
+		velocityDelta = (FlxVelocity.computeVelocity(velocity.x, acceleration.x, Math.abs(damping * velocity.x), 0) - velocity.x)/2;
 		velocity.x += velocityDelta;
 		delta = velocity.x*FlxG.elapsed;
 		velocity.x += velocityDelta;
 		position.x += delta;
 		
-		velocityDelta = (FlxMath.computeVelocity(velocity.y,acceleration.y, Math.abs(damping * velocity.y), 0) - velocity.y)/2;
+		velocityDelta = (FlxVelocity.computeVelocity(velocity.y,acceleration.y, Math.abs(damping * velocity.y), 0) - velocity.y)/2;
 		velocity.y += velocityDelta;
 		delta = velocity.y*FlxG.elapsed;
 		velocity.y += velocityDelta;
